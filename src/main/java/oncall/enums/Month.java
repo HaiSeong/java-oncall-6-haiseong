@@ -18,7 +18,7 @@ public enum Month {
     DECEMBER(12, 31, List.of(25)),
     ;
 
-    public static final String NO_SUCH_MONTH_ERROR = "존재하지 않는 달 입니다.";
+    private static final String NO_SUCH_MONTH_ERROR = "존재하지 않는 달 입니다.";
 
     private final int month;
     private final int maxDate;

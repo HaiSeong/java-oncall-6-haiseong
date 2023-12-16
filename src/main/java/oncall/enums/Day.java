@@ -14,8 +14,8 @@ public enum Day {
     SATURDAY("토", WEEKEND, 5),
     SUNDAY("일", WEEKEND, 6);
 
-    public static final String NO_SUCH_COMMEND_ERROR = "존재하지 않는 요일 입니다.";
-    public static final int WEEK_SIZE = 7;
+    private static final String NO_SUCH_COMMEND_ERROR = "존재하지 않는 요일 입니다.";
+    private static final int WEEK_SIZE = 7;
 
     private final String name;
     private final Type type;
