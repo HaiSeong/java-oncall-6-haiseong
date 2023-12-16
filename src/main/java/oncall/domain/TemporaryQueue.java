@@ -2,9 +2,9 @@ package oncall.domain;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class TemporaryQueue {
+    private static final int EMPTY_QUEUE_SIZE = 0;
 
     private final List<Member> temporaryQueue;
 
@@ -26,14 +26,10 @@ public class TemporaryQueue {
     }
 
     public boolean isNotEmpty() {
-        return temporaryQueue.size() != 0;
+        return temporaryQueue.size() != EMPTY_QUEUE_SIZE;
     }
 
     public boolean isEmpty() {
-        return temporaryQueue.size() == 0;
-    }
-
-    public Stream<Member> stream() {
-        return temporaryQueue.stream();
+        return temporaryQueue.size() == EMPTY_QUEUE_SIZE;
     }
 }
