@@ -26,10 +26,31 @@ public class Calendar {
         return new Calendar(dates);
     }
 
-    @Override
-    public String toString() {
-        return "Calendar{" +
-                "dates=" + dates +
-                '}';
+
+    public int getMaxDate() {
+        return dates.size();
     }
+
+    public Member getMember(int input) {
+        return dates.stream()
+                .filter(date -> date.getDate() == input)
+                .map(Date::getMember)
+                .findFirst()
+                .orElse(null);
+    }
+
+    public void setMember(int dateInput, Member member) {
+        dates.stream()
+                .filter(date -> date.getDate() == dateInput)
+                .findFirst().ifPresent(date -> date.setMember(member));
+    }
+
+    public List<Date> getDates() {
+        return dates;
+    }
+
+    public List<String> getDateInfos() {
+        return dates.stream().map(Date::toString).toList();
+    }
+
 }

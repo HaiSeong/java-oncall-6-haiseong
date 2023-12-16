@@ -1,10 +1,14 @@
 package oncall.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import oncall.domain.Calendar;
+import oncall.domain.Computer;
+import oncall.domain.Member;
 import oncall.domain.MonthInfo;
 import oncall.domain.Members;
+import oncall.domain.TemporaryQueue;
 import oncall.parser.MonthInfoParser;
 import oncall.parser.MembersParser;
 import oncall.view.InputView;
@@ -21,15 +25,14 @@ public class Controller {
 
     public void run() {
         MonthInfo monthInfo = getMonthInfo();
-        System.out.println("dateInfo = " + monthInfo);
-//        List<Members> membersList = getMembers();
-//        Members weekdayMembers = membersList.get(0);
-//        Members weekendMembers = membersList.get(1);
-//        System.out.println("weekdayMembers = " + weekdayMembers);
-//        System.out.println("weekendMembers = " + weekendMembers);
-
+        List<Members> membersList = getMembers();
+        Members weekdayMembers = membersList.get(0);
+        Members weekendMembers = membersList.get(1);
         Calendar calendar = Calendar.createCalendar(monthInfo);
-        System.out.println("calendar = " + calendar);
+        Computer computer = Computer.createComputer(calendar, weekdayMembers, weekendMembers);
+        computer.run();
+
+        outputView.printCalendar(calendar.getDateInfos());
     }
 
     private MonthInfo getMonthInfo() {
@@ -55,11 +58,12 @@ public class Controller {
                 String weekendMembersLine = inputView.readWeekendMembers();
                 Members weekendMembers = new Members(membersParser.parseMembers(weekendMembersLine));
                 Members.checkSameMembers(weekdayMembers, weekendMembers);
-                return List.of(weekdayMembers, weekdayMembers);
+                return List.of(weekdayMembers, weekendMembers);
             } catch (IllegalArgumentException e) {
                 outputView.printError(e.getMessage());
             }
         }
     }
+
 }
 

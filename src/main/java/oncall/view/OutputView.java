@@ -17,6 +17,7 @@ public class OutputView {
     }
 
     public void printCalendar(List<String> strings) {
+        printBlank();
         for (String string : strings) {
             System.out.printf(string);
         }
