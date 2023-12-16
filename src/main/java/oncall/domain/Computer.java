@@ -10,7 +10,7 @@ public class Computer {
     private final TemporaryQueue weekdayTemporaryQueue;
     private final TemporaryQueue weekendTemporaryQueue;
 
-    public Computer(Calendar calendar, Members weekdayMembers, Members weekendMembers,
+    private Computer(Calendar calendar, Members weekdayMembers, Members weekendMembers,
                     TemporaryQueue weekdayTemporaryQueue, TemporaryQueue weekendTemporaryQueue) {
         this.calendar = calendar;
         this.weekdayMembers = weekdayMembers;
