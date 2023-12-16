@@ -1,6 +1,5 @@
 package oncall.controller;
 
-import java.util.List;
 import oncall.domain.Calendar;
 import oncall.domain.Computer;
 import oncall.domain.MonthInfo;
@@ -21,11 +20,10 @@ public class Controller {
 
     public void run() {
         MonthInfo monthInfo = getMonthInfo();
-        List<Members> membersList = getMembers();
-        Members weekdayMembers = membersList.get(0);
-        Members weekendMembers = membersList.get(1);
+
         Calendar calendar = Calendar.createCalendar(monthInfo);
-        Computer computer = Computer.createComputer(calendar, weekdayMembers, weekendMembers);
+
+        Computer computer = getComputer(calendar);
         computer.run();
 
         outputView.printCalendar(calendar.getDateInfos());
@@ -44,7 +42,7 @@ public class Controller {
         }
     }
 
-    private List<Members> getMembers() {
+    private Computer getComputer(Calendar calendar) {
         MembersParser membersParser = new MembersParser();
 
         while (true) {
@@ -54,7 +52,8 @@ public class Controller {
                 String weekendMembersLine = inputView.readWeekendMembers();
                 Members weekendMembers = new Members(membersParser.parseMembers(weekendMembersLine));
                 Members.checkSameMembers(weekdayMembers, weekendMembers);
-                return List.of(weekdayMembers, weekendMembers);
+
+                return Computer.createComputer(calendar, weekdayMembers, weekendMembers);
             } catch (IllegalArgumentException e) {
                 outputView.printError(e.getMessage());
             }
