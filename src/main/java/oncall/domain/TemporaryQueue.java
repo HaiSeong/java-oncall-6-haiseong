@@ -8,7 +8,7 @@ public class TemporaryQueue {
 
     private final List<Member> temporaryQueue;
 
-    public TemporaryQueue(List<Member> temporaryQueue) {
+    private TemporaryQueue(List<Member> temporaryQueue) {
         this.temporaryQueue = temporaryQueue;
     }
 

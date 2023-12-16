@@ -5,13 +5,13 @@ import oncall.enums.Day;
 import oncall.enums.Month;
 
 public class MonthInfo {
-    private static final String INVALID_SIZE_ERROR_MESSAGE = "입력 형식이 잘못되었 습니다";
+    private static final String INVALID_SIZE_ERROR_MESSAGE = "입력 형식이 잘못되었습니다";
 
     private final Month month;
     private final Day day;
 
 
-    public MonthInfo(Month month, Day day) {
+    private MonthInfo(Month month, Day day) {
         this.month = month;
         this.day = day;
     }
