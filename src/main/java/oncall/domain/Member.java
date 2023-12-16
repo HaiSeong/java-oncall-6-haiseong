@@ -6,6 +6,7 @@ public class Member {
     private final String name;
 
     public Member(String name) {
+        validateLength(name.length());
         this.name = name;
     }
 
@@ -32,13 +33,6 @@ public class Member {
     @Override
     public int hashCode() {
         return Objects.hash(name);
-    }
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "name='" + name + '\'' +
-                '}';
     }
 
     public String getName() {

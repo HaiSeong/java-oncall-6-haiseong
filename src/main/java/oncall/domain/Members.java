@@ -14,10 +14,14 @@ public class Members {
     private int index;
 
     public Members(List<Member> members) {
-        validateSize(members.size());
-        validateDuplicated(members);
+        validate(members);
         this.members = members;
         index = 0;
+    }
+
+    private void validate(List<Member> members) {
+        validateSize(members.size());
+        validateDuplicated(members);
     }
 
     private void validateSize(int size) {
@@ -55,10 +59,4 @@ public class Members {
         return members.contains(member);
     }
 
-    @Override
-    public String toString() {
-        return "Members{" +
-                "members=" + members +
-                '}';
-    }
 }

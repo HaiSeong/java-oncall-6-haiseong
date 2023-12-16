@@ -37,11 +37,4 @@ public class MonthInfo {
         return day;
     }
 
-    @Override
-    public String toString() {
-        return "MonthInfo{" +
-                "month=" + month +
-                ", day=" + day +
-                '}';
-    }
 }

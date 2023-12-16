@@ -1,9 +1,9 @@
 package oncall.enums;
 
-import static oncall.enums.Type.*;
+import static oncall.enums.Type.WEEKDAY;
+import static oncall.enums.Type.WEEKEND;
 
 import java.util.Arrays;
-
 
 public enum Day {
     MONDAY("월", WEEKDAY, 0),

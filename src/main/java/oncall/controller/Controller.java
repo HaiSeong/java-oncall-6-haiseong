@@ -1,14 +1,10 @@
 package oncall.controller;
 
-
-import java.util.ArrayList;
 import java.util.List;
 import oncall.domain.Calendar;
 import oncall.domain.Computer;
-import oncall.domain.Member;
 import oncall.domain.MonthInfo;
 import oncall.domain.Members;
-import oncall.domain.TemporaryQueue;
 import oncall.parser.MonthInfoParser;
 import oncall.parser.MembersParser;
 import oncall.view.InputView;
@@ -37,7 +33,7 @@ public class Controller {
 
     private MonthInfo getMonthInfo() {
         MonthInfoParser monthInfoParser = new MonthInfoParser();
-    
+
         while (true) {
             try {
                 String line = inputView.readMonthInfo();

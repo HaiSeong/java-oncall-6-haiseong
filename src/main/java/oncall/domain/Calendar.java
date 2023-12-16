@@ -26,23 +26,12 @@ public class Calendar {
         return new Calendar(dates);
     }
 
-
-    public int getMaxDate() {
-        return dates.size();
-    }
-
     public Member getMember(int input) {
         return dates.stream()
                 .filter(date -> date.getDate() == input)
                 .map(Date::getMember)
                 .findFirst()
                 .orElse(null);
-    }
-
-    public void setMember(int dateInput, Member member) {
-        dates.stream()
-                .filter(date -> date.getDate() == dateInput)
-                .findFirst().ifPresent(date -> date.setMember(member));
     }
 
     public List<Date> getDates() {

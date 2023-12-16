@@ -54,7 +54,8 @@ public class Date {
 
     @Override
     public String toString() {
-        return String.format(DATE_FORMAT, month.getMonth(), date, day.getName(), type.getDescription(), member.getName());
+        return String.format(DATE_FORMAT, month.getMonth(), date, day.getName(), type.getDescription(),
+                member.getName());
     }
 
 }

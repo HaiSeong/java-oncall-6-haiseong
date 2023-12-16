@@ -36,11 +36,4 @@ public class TemporaryQueue {
     public Stream<Member> stream() {
         return temporaryQueue.stream();
     }
-
-    @Override
-    public String toString() {
-        return "TemporaryQueue{" +
-                "temporaryQueue=" + temporaryQueue +
-                '}';
-    }
 }
