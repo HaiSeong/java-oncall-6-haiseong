@@ -7,6 +7,7 @@ import oncall.enums.Type;
 public class Date {
     private static final String DATE_FORMAT = "%d월 %d일 %s%s %s\n";
     private static final String INVALID_DATE_ERROR_MESSAGE = "존재하지 않는 날짜입니다.";
+    private static final int FIRST_DAY = 1;
 
     private final Month month;
     private final int date;
@@ -23,7 +24,7 @@ public class Date {
     }
 
     private void validate(int date, Month month) {
-        if (date < 1 || date > month.getMaxDate()) {
+        if (date < FIRST_DAY || date > month.getMaxDate()) {
             throw new IllegalArgumentException(INVALID_DATE_ERROR_MESSAGE);
         }
     }
