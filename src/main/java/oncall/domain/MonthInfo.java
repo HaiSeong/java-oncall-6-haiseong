@@ -2,22 +2,23 @@ package oncall.domain;
 
 import java.util.List;
 import oncall.enums.Day;
+import oncall.enums.Month;
 
 public class MonthInfo {
     private static final String INVALID_SIZE_ERROR_MESSAGE = "입력 형식이 잘못되었 습니다";
 
-    private final int Month;
+    private final Month month;
     private final Day day;
 
 
-    public MonthInfo(int month, Day day) {
-        Month = month;
+    public MonthInfo(Month month, Day day) {
+        this.month = month;
         this.day = day;
     }
 
     public static MonthInfo createDateInfo(List<String> input) {
         validateInputSize(input.size());
-        int month = Integer.parseInt(input.get(0));
+        Month month = Month.findByNumber(Integer.parseInt(input.get(0)));
         Day day = Day.findByName(input.get(1));
         return new MonthInfo(month, day);
     }
@@ -28,11 +29,19 @@ public class MonthInfo {
         }
     }
 
+    public Month getMonth() {
+        return month;
+    }
+
+    public Day getDay() {
+        return day;
+    }
+
     @Override
     public String toString() {
-        return "DateInfo{" +
-                "Month=" + Month +
-                ", day='" + day + '\'' +
+        return "MonthInfo{" +
+                "month=" + month +
+                ", day=" + day +
                 '}';
     }
 }

@@ -2,6 +2,7 @@ package oncall.controller;
 
 
 import java.util.List;
+import oncall.domain.Calendar;
 import oncall.domain.MonthInfo;
 import oncall.domain.Members;
 import oncall.parser.MonthInfoParser;
@@ -21,11 +22,14 @@ public class Controller {
     public void run() {
         MonthInfo monthInfo = getMonthInfo();
         System.out.println("dateInfo = " + monthInfo);
-        List<Members> membersList = getMembers();
-        Members weekdayMembers = membersList.get(0);
-        Members weekendMembers = membersList.get(1);
-        System.out.println("weekdayMembers = " + weekdayMembers);
-        System.out.println("weekendMembers = " + weekendMembers);
+//        List<Members> membersList = getMembers();
+//        Members weekdayMembers = membersList.get(0);
+//        Members weekendMembers = membersList.get(1);
+//        System.out.println("weekdayMembers = " + weekdayMembers);
+//        System.out.println("weekendMembers = " + weekendMembers);
+
+        Calendar calendar = Calendar.createCalendar(monthInfo);
+        System.out.println("calendar = " + calendar);
     }
 
     private MonthInfo getMonthInfo() {
