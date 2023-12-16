@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Members {
     private static final String DUPLICATED_MEMBER_ERROR_MESSAGE = "이름이 중복되었습니다.";
-    public static final String ILLEGAL_SIZE_ERROR_MESSAGE = "올바르지 않은 인원수 입니다.";
-    public static final String INVALID_ORDER_ERROR_MESSAGE = "올바르지 않은 입력 입니다.";
-    public static final int MIN_SIZE = 5;
-    public static final int MAX_SIZE = 35;
+    private static final String ILLEGAL_SIZE_ERROR_MESSAGE = "올바르지 않은 인원수 입니다.";
+    private static final String INVALID_ORDER_ERROR_MESSAGE = "올바르지 않은 입력 입니다.";
+    private static final int MIN_SIZE = 5;
+    private static final int MAX_SIZE = 35;
 
     private final List<Member> members;
     private int index;
